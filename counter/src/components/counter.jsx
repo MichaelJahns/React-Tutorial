@@ -9,7 +9,7 @@ export default class Skill extends Component {
     const isDecrementEnabled = this.props.counter.value <= 0;
 
     return (
-      <aside>
+      <aside className="counter">
         {this.props.children}
         <h3> {this.props.counter.name} </h3>
         <span className={this.getBadgeClasses()}>
