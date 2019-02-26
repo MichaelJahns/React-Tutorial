@@ -6,7 +6,6 @@ export default class Skill extends Component {
     const isIncrementEnabled =
       this.props.counter.prerequisite ||
       this.props.counter.value >= this.props.counter.levels;
-    const isDecrementEnabled = this.props.counter.value <= 0;
 
     return (
       <aside className="counter">
@@ -21,13 +20,6 @@ export default class Skill extends Component {
           className="btn btn-secondary btn-sm"
         >
           Increment
-        </button>
-        <button
-          disabled={isDecrementEnabled}
-          onClick={() => this.props.onDecrement(this.props.counter)}
-          className="btn btn-secondary btn-sm"
-        >
-          Decrement
         </button>
         <p> Description: {this.props.counter.description} </p>
         <p>
