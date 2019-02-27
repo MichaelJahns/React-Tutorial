@@ -2,11 +2,6 @@ import React, { Component } from "react";
 
 export default class Skill extends Component {
   render() {
-    console.log(this.props.counter);
-    const isIncrementEnabled =
-      this.props.counter.prerequisite ||
-      this.props.counter.value >= this.props.counter.levels;
-
     return (
       <aside className="counter">
         {this.props.children}
@@ -15,7 +10,7 @@ export default class Skill extends Component {
           {this.props.counter.value}/{this.props.counter.levels}
         </span>
         <button
-          disabled={isIncrementEnabled}
+          disabled={this.getDisabled()}
           onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
@@ -35,5 +30,16 @@ export default class Skill extends Component {
     let classes = "badge m-2 badge-";
     classes += this.props.counter.value === 0 ? "primary" : "warning";
     return classes;
+  }
+
+  getDisabled() {
+    let disabled = true;
+    if (
+      this.props.counter.value < this.props.counter.levels &&
+      this.props.counter.locked === false
+    ) {
+      disabled = false;
+    }
+    return disabled;
   }
 }
