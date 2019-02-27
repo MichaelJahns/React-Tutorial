@@ -47,6 +47,7 @@ class App extends Component {
         levels: 2,
         locked: true,
         unlocks: null,
+        prerequisite: "lv 1 Ruwach",
         description:
           "Instantly move the caster to a different location. Can be used to move randomly or back to the casters save point."
       }
@@ -76,14 +77,22 @@ class App extends Component {
     counters[index] = { ...counter };
     counters[index] > 9 ? (counters[index] = 10) : (counters[index].value += 1);
 
+    //Needs to be cleaned
     if (counters[index].unlocks !== null) {
-      console.log(counters[index].unlocks.skill);
+      if (counters[index].value >= counters[index].unlocks.rank) {
+        console.log(`${counters[index].unlocks.skill} has been unlocked`);
+        counters.forEach(counter => {
+          if (counter.name === counters[index].unlocks.skill) {
+            counter.locked = false;
+          }
+        });
+      }
     }
 
     this.setState({ counters });
   };
 
-  handleUnlock;
+  handleUnlock() {}
 
   render() {
     // console.log("App - Rendered");

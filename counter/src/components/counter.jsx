@@ -14,7 +14,7 @@ export default class Skill extends Component {
           onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
-          Increment
+          +
         </button>
         <p> Description: {this.props.counter.description} </p>
         <p>
