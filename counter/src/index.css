@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+aside {
+  outline: red 1px solid;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 20%;
+  grid-template-rows: 20%;
+}
+
+#counter {
+  outline: red 1px solid;
+  grid-column-start: 1;
+  grid-column-end: span 5;
+}
